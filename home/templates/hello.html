@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h3>Create New Task</h3>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="task_name" placeholder="Type task here...">
+        <button type="submit">POST Data</button>
+    </form>
+
+    <h3>Read List</h3>
+    <ul>
+        {% for task in tasks %}
+            <li>
+                <!-- <h2>ID:{{task.id}}</h2> -->
+                <strong>{{ task.title }}</strong> 
+                {% if task.is_completed %} (done) 
+                {% else %} (Pending) 
+                {% endif %}
+
+                <a href="/patch/{{ task.id }}/"><button>PATCH</button></a>
+                <a href="/delete/{{ task.id }}/"><button>DELETE</button></a>
+            </li>
+            <br>
+        {% empty %}
+            <p>No data found.</p>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
