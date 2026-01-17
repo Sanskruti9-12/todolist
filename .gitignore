@@ -1,8 +1,18 @@
-# Python cache
 __pycache__/
-
-db.sqlite3
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.Python
 *.log
+db.sqlite3
+media/
+staticfiles/
+venv/
+env/
+.venv/
 .vscode/
 .DS_Store
 Thumbs.db
+*/migrations/__pycache__/
+.env
